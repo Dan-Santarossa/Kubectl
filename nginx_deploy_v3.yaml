@@ -22,6 +22,9 @@ spec:
         name: nginx
         ports:
         - containerPort: 80
+
+      - image: debian:9
+        name: debian   
 ---
 apiVersion: v1
 kind: Service
@@ -33,6 +36,6 @@ spec:
     app: nginx-deployment
   ports:
   - port: 80
-    nodePort: 30077
+    nodePort: 30000
 
 
