@@ -27,7 +27,21 @@ spec:
         volumeMounts:
           - mountPath: /usr/dsanti/Kubectl
             name: nginxmount
+      
       - image: bookworm
         name: debian
         resources: {}
 status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: deployment-node
+spec:
+  selector:
+    app: nginx-deployment
+  ports:
+  - port: 80
+    targetPort: 8080
+
+
