@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    app: nginx-pod
+  name: nginx-pod
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: nginx-pod
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: nginx-pod
+    spec:
+      containers:
+      - image: nginx:1.22
+        name: nginx1
+        resources: {}
+      
+      - image: debian:11
+        name: debian2  
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mcpod-service
+spec:
+  type: NodePort
+  selector:
+    app: nginx-pod
+  ports:
+  - port: 80
+    nodePort: 30000

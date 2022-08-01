@@ -23,7 +23,7 @@ spec:
     args:
       - while true; do
           date >> /html/index.html;
-          sleep 1;
+          sleep 30;
         done
 
 ---
@@ -37,4 +37,4 @@ spec:
     app: nginx1
   ports:
   - port: 80
-    nodePort: 30001
+    nodePort: 30077

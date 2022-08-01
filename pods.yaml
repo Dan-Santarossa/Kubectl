@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mc-pod
+  labels:
+    name: nginxdeb
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.22
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 80
+        name: http-web-svc
+  - name: debian
+    image: debian:11
+    resources:
+      limits:
+        memory: "528Mi"
+        cpu: "500m"  
